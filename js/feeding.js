@@ -20,11 +20,13 @@ startButton.addEventListener('click', async function() {
     if (isCorrect === true) {
         this.disabled = true;
         this.classList.add('disabled-button');
+        this.textContent = "Идет симуляция..."
 
         await startFeeding(n, m, b, t, r);
         
         this.disabled = false;
         this.classList.remove('disabled-button');
+        this.textContent = "Запустить симуляцию"
     } else {
         outputField.innerHTML = isCorrect;
     }
