@@ -33,7 +33,7 @@ startButton.addEventListener('click', async function() {
 });
 
 async function startFeeding(n, m, b, t, r) {
-    let food_in_bowl = m;
+    let foodInBowl = m;
     const startTime = Date.now();
 
     const outputField = document.getElementById('messages');
@@ -42,15 +42,15 @@ async function startFeeding(n, m, b, t, r) {
     for (let i = 0; i < n; i++) {
         outputField.innerHTML += `Котик под номером ${i+1} подошел к миске.<br>`;
         
-        if (food_in_bowl < b) {
+        if (foodInBowl < b) {
             outputField.innerHTML += `Бабушка наполняет миску...<br>`;
             await delay(r * 1000);
-            food_in_bowl = m;
+            foodInBowl = m;
         }
 
         await delay(t * 1000);
-        food_in_bowl -= b;
-        outputField.innerHTML += `Котик под номером ${i+1} отошел от миски.<br>`;
+        foodInBowl -= b;
+        outputField.innerHTML += `Котик под номером ${i+1} покушал и отошел от миски. Еды осталось: ${foodInBowl}.<br>`;
     }
 
     const totalTime = (Date.now() - startTime) / 1000;
